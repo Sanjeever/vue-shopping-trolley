@@ -45,7 +45,7 @@
 </template>
 
 <script setup lang="ts">
-import { useMessage, useDialog, type UploadFileInfo } from "naive-ui";
+import { useMessage } from "naive-ui";
 import { useProductListStore } from "@/stores/product-list";
 import * as _ from "lodash";
 const productListStore = useProductListStore();

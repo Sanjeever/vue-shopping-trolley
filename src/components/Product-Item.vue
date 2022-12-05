@@ -43,7 +43,6 @@
 </template>
 
 <script setup lang="ts">
-const value = ref(5);
 const props = defineProps({
   name: { type: String, required: true },
   price: { type: Number, required: true },

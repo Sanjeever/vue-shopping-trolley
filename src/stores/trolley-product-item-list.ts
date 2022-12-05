@@ -1,4 +1,3 @@
-import { c } from "naive-ui";
 import { defineStore } from "pinia";
 
 export const useTrolleyProductItemListStore = defineStore(

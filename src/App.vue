@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from "vue-router";
-
+import { RouterView } from "vue-router";
 import { useProductListStore } from "@/stores/product-list";
 import { useTrolleyProductItemListStore } from "./stores/trolley-product-item-list";
+
 const productListStore = useProductListStore();
 const trolleyProductItemList = useTrolleyProductItemListStore();
 onMounted(() => {

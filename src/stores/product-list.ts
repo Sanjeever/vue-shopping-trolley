@@ -1,4 +1,3 @@
-import { ref, computed } from "vue";
 import { defineStore } from "pinia";
 export const useProductListStore = defineStore("product-list", () => {
   const productList: ProductItem[] = reactive([]);
