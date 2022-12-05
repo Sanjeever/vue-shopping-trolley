@@ -38,7 +38,9 @@
         </n-tab-pane>
 
         <n-tab-pane name="🖖 添加商品" tab="🖖 添加商品">
-          <ManagerialView />
+          <div class="inner-scroll">
+            <ManagerialView />
+          </div>
         </n-tab-pane>
       </n-tabs>
     </n-card>
@@ -118,7 +120,7 @@ function settle() {
   }
   display: block;
   width: auto;
-  max-height: 60vh;
+  max-height: 71vh;
   overflow: auto;
   overscroll-behavior: contain;
   -ms-scroll-chaining: contain;
