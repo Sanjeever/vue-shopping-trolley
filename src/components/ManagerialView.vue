@@ -62,6 +62,7 @@ const productItemForm = ref<ProductItem>({
 function addToProductList() {
   if (productItemForm.value.name === "") {
     message.warning("商品名称不能为空");
+    return;
   }
   const dto = _.cloneDeep(productItemForm.value);
   dto.id = productList.length + 1;
