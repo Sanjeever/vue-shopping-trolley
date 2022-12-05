@@ -92,8 +92,10 @@ function uploadImageHandle(event: Event) {
   const inputElement = <HTMLInputElement>event.target;
   const file = inputElement.files![0];
   const MAX_SIZE = 1024 * 1024 * 2;
-  if (!["image/png, image/jpeg"].includes(file.type)) {
-    message.error("图片仅支持 jpeg 和 png 格式的图片");
+  const accept = ["image/jpeg", "image/png"];
+  const isImage = accept.includes(file.type);
+  if (!isImage) {
+    message.error("仅支持 jpeg 和 png 格式的图片");
     inputElement.value = "";
     return;
   }
