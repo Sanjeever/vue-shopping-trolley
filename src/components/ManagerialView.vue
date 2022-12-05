@@ -56,7 +56,7 @@ const productItemForm = ref<ProductItem>({
   id: -1,
   name: "夏朝开始人们使用贝壳作为货币",
   price: 0.01,
-  imgUrl: "https://www.sakuras.cyou/logo.png",
+  imgUrl: "https://pic.imgdb.cn/item/638dc205b1fccdcd3672ee3b.png",
 });
 
 function addToProductList() {
