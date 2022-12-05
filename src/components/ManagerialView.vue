@@ -87,18 +87,34 @@ function resetAll() {
   window.localStorage.removeItem("trolley-product-item-list");
   window.location.reload();
 }
+
 function uploadImageHandle(event: Event) {
   const inputElement = <HTMLInputElement>event.target;
-  const fileReader = new FileReader();
-  fileReader.readAsDataURL(inputElement.files![0]);
-  fileReader.addEventListener("loadend", (event: ProgressEvent<FileReader>) => {
-    const base64 = event.target?.result;
-    productItemForm.value.imgUrl = base64 as string;
+  const file = inputElement.files![0];
+  const MAX_SIZE = 1024 * 1024 * 2;
+  if (!["image/png, image/jpeg"].includes(file.type)) {
+    message.error("图片仅支持 jpeg 和 png 格式的图片");
     inputElement.value = "";
-    if (active.value === false) {
-      active.value = true;
-    }
-  });
+    return;
+  }
+  if (file.size <= MAX_SIZE) {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.addEventListener(
+      "loadend",
+      (event: ProgressEvent<FileReader>) => {
+        const base64 = event.target?.result;
+        productItemForm.value.imgUrl = base64 as string;
+        inputElement.value = "";
+        if (active.value === false) {
+          active.value = true;
+        }
+      }
+    );
+  } else {
+    message.error("上传图片过大，最大 2M");
+    inputElement.value = "";
+  }
 }
 </script>
 
