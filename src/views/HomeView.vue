@@ -97,7 +97,7 @@ function deleteFromTrolley(trolleyProductItem: TrolleyProductItem) {
 function settle() {
   notification["success"]({
     content: "结算成功",
-    meta: "TODO!",
+    meta: "TODO: https://github.com/Sanjeever/vue-shopping-trolley",
     duration: 2500,
     keepAliveOnHover: true,
   });
