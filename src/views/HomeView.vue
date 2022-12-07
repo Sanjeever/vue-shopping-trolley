@@ -79,11 +79,6 @@ const trolleyProductItemList = useTrolleyProductItemListStore();
 const message = useMessage();
 const notification = useNotification();
 
-function changeCount(trolleyProductItem: TrolleyProductItem, event: Event) {
-  const newVal = (<HTMLInputElement>event.target).value;
-  trolleyProductItemList.changeCount(trolleyProductItem.id, parseInt(newVal));
-}
-
 function addToTrolley(product: ProductItem) {
   trolleyProductItemList.addProduct(product);
   message.success(`添加 ${product.name} 到购物车成功`);

@@ -17,8 +17,8 @@ export const useTrolleyProductItemListStore = defineStore(
     }
 
     function addProduct(productItem: ProductItem) {
-      for (let i = 0; i < trolleyProductItemList.length; i++) {
-        const trolleyProductItem = trolleyProductItemList[i];
+      for (const element of trolleyProductItemList) {
+        const trolleyProductItem = element;
         if (
           trolleyProductItem.id === productItem.id &&
           trolleyProductItem.isDelete === false
@@ -34,20 +34,6 @@ export const useTrolleyProductItemListStore = defineStore(
         isDelete: false,
       });
       persistence();
-    }
-
-    function changeCount(trolleyProductItemId: number, count: number) {
-      for (let i = 0; i < trolleyProductItemList.length; i++) {
-        const trolleyProductItem = trolleyProductItemList[i];
-        if (
-          trolleyProductItem.id === trolleyProductItemId &&
-          trolleyProductItem.isDelete === false
-        ) {
-          trolleyProductItem.count = count;
-          persistence();
-          return;
-        }
-      }
     }
 
     function deleteProduct(productItem: ProductItem) {
@@ -83,7 +69,6 @@ export const useTrolleyProductItemListStore = defineStore(
       init,
       addProduct,
       deleteProduct,
-      changeCount,
       totalPrice,
       filteredTrolleyProductItemList,
     };
