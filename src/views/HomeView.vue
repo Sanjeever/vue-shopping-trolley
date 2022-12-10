@@ -11,8 +11,6 @@
               :price="product.price"
               :imgUrl="product.imgUrl"
               :atProductListView="true"
-              :atTrolleyView="false"
-              :atManagerialView="false"
               @ready-to-buy="addToTrolley(product)"
             />
           </div>
@@ -27,9 +25,7 @@
               :price="trolleyProductItem.price"
               :imgUrl="trolleyProductItem.imgUrl"
               :trolleyProductItemCount="trolleyProductItem.count"
-              :atProductListView="false"
               :atTrolleyView="true"
-              :atManagerialView="false"
               @delete-from-trolley="deleteFromTrolley(trolleyProductItem)"
             />
           </div>

@@ -29,11 +29,6 @@
                   删除
                 </n-button>
               </div>
-              <div class="atManagerialView" v-show="atManagerialView">
-                <n-button quaternary @click="$emit('delete-from-product-list')">
-                  🗑️
-                </n-button>
-              </div>
             </span></n-p
           >
         </n-space>
@@ -50,18 +45,16 @@ export interface Props {
   trolleyProductItemCount?: number;
   atProductListView?: boolean;
   atTrolleyView?: boolean;
-  atManagerialView?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   atProductListView: false,
   atTrolleyView: false,
-  atManagerialView: false,
 });
 
-const emit = defineEmits<{
+const emits = defineEmits<{
   (e: "ready-to-buy", product: ProductItem): void;
-  (e: "delete-from-product-list", product: TrolleyProductItem): void;
+  (e: "delete-from-trolley", product: ProductItem): void;
 }>();
 </script>
 
