@@ -53,11 +53,13 @@ export const useTrolleyProductItemListStore = defineStore(
       );
     }
 
-    const filteredTrolleyProductItemList = computed(() => {
-      return trolleyProductItemList.filter((item) => item.isDelete === false);
-    });
+    const filteredTrolleyProductItemList = computed<TrolleyProductItem[]>(
+      () => {
+        return trolleyProductItemList.filter((item) => item.isDelete === false);
+      }
+    );
 
-    const totalPrice = computed(() => {
+    const totalPrice = computed<number>(() => {
       let ret = 0;
       filteredTrolleyProductItemList.value.forEach((item) => {
         ret += item.price * item.count;
