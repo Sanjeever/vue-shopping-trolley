@@ -20,7 +20,7 @@ pnpm dev
 pnpm build
 ```
 
-## thanks
+## Thanks
 
 - [tusen-ai/naive-ui](https://github.com/tusen-ai/naive-ui)
 - [07akioni/vfonts](https://github.com/07akioni/vfonts)
