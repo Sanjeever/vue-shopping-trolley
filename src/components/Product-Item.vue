@@ -19,7 +19,7 @@
               </div>
 
               <div class="atTrolleyView" v-show="atTrolleyView">
-                <span>数量：{{trolleyProductItemCount}}</span>
+                <span>数量：{{ trolleyProductItemCount }}</span>
                 <n-button
                   strong
                   secondary
@@ -43,15 +43,26 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps({
-  name: { type: String, required: true },
-  price: { type: Number, required: true },
-  imgUrl: { type: String, required: false },
-  trolleyProductItemCount: { type: Number, required: false },
-  atProductListView: { type: Boolean, default: false, required: false },
-  atTrolleyView: { type: Boolean, default: false, required: false },
-  atManagerialView: { type: Boolean, default: false, required: false },
+export interface Props {
+  name: string;
+  price: number;
+  imgUrl?: string;
+  trolleyProductItemCount?: number;
+  atProductListView?: boolean;
+  atTrolleyView?: boolean;
+  atManagerialView?: boolean;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  atProductListView: false,
+  atTrolleyView: false,
+  atManagerialView: false,
 });
+
+const emit = defineEmits<{
+  (e: "ready-to-buy", product: ProductItem): void;
+  (e: "delete-from-product-list", product: TrolleyProductItem): void;
+}>();
 </script>
 
 <style scoped lang="less">
