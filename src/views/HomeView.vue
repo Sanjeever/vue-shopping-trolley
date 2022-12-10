@@ -129,8 +129,4 @@ function settle() {
     text-align: center;
   }
 }
-
-/* .n-card {
-  max-width: 60vw;
-} */
 </style>
