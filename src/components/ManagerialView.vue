@@ -52,12 +52,15 @@ const productListStore = useProductListStore();
 const { productList } = productListStore;
 const message = useMessage();
 const active = ref(false);
-const productItemForm = ref<ProductItem>({
+
+const initialProductItemForm: ProductItem = {
   id: -1,
-  name: "夏朝开始人们使用贝壳作为货币",
+  name: "",
   price: 0.01,
   imgUrl: "https://pic.imgdb.cn/item/638dc205b1fccdcd3672ee3b.png",
-});
+};
+
+const productItemForm = ref<ProductItem>({ ...initialProductItemForm });
 
 function addToProductList() {
   if (productItemForm.value.name === "") {
@@ -73,12 +76,7 @@ function addToProductList() {
 }
 
 function cleanForm() {
-  productItemForm.value = {
-    id: -1,
-    name: "",
-    price: 0.01,
-    imgUrl: "",
-  };
+  productItemForm.value = { ...initialProductItemForm }
   active.value = false;
 }
 
