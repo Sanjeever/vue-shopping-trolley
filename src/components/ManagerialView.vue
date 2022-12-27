@@ -9,7 +9,7 @@
       <n-form-item label="商品名">
         <n-input
           type="text"
-          v-model:value="productItemForm.name"
+          v-model:value.trim="productItemForm.name"
           round
           clearable
         />
@@ -29,7 +29,7 @@
       <n-form-item label="商品图链接">
         <n-input
           type="text"
-          v-model:value="productItemForm.imgUrl"
+          v-model:value.trim="productItemForm.imgUrl"
           :disabled="active"
           round
           clearable
